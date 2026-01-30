@@ -12,11 +12,13 @@ load_dotenv()
 app = Flask(__name__)
 
 # MongoDB Configuration
-MONGO_URI = "mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/mydb?retryWrites=true&w=majority"
+# .env file
+MONGO_URI="mongodb+srv://nivetham811_db_user:qlypXn85GbX0XM04@cluster0.iztpk5t.mongodb.net/github_webhooks?retryWrites=true&w=majority"
+WEBHOOK_SECRET="my_github_webhook_secret"
 
 # GitHub Webhook Secret (optional for security)
 WEBHOOK_SECRET = os.getenv('WEBHOOK_SECRET', '')
-
+collection = None
 # Initialize MongoDB connection
 try:
     client = pymongo.MongoClient(MONGO_URI)
