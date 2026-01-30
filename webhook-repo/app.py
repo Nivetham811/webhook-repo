@@ -14,17 +14,14 @@ app = Flask(__name__)
 # MongoDB Configuration
 MONGO_URI = "mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/mydb?retryWrites=true&w=majority"
 
-DATABASE_NAME = client["mydb"]
-COLLECTION_NAME = db["data"]
-
 # GitHub Webhook Secret (optional for security)
 WEBHOOK_SECRET = os.getenv('WEBHOOK_SECRET', '')
 
 # Initialize MongoDB connection
 try:
     client = pymongo.MongoClient(MONGO_URI)
-    db = client[DATABASE_NAME]
-    collection = db[COLLECTION_NAME]
+    db = client["mydb"]
+    collection = db["data"]
     print("✅ Connected to MongoDB successfully!")
 except Exception as e:
     print(f"❌ MongoDB connection error: {e}")
