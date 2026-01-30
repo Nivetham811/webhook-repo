@@ -12,9 +12,10 @@ load_dotenv()
 app = Flask(__name__)
 
 # MongoDB Configuration
-MONGO_URI = os.getenv('MONGO_URI', 'mongodb://localhost:27017/')
-DATABASE_NAME = 'github_webhooks'
-COLLECTION_NAME = 'webhook_events'
+MONGO_URI = "mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/mydb?retryWrites=true&w=majority"
+
+DATABASE_NAME = client["mydb"]
+COLLECTION_NAME = db["data"]
 
 # GitHub Webhook Secret (optional for security)
 WEBHOOK_SECRET = os.getenv('WEBHOOK_SECRET', '')
